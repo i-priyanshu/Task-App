@@ -1,0 +1,23 @@
+{
+  "name": "Task-App",
+  "version": "1.0.0",
+  "description": "Multi-functional Task App using Node.js and various other Technologies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-priyanshu/Task-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i-priyanshu/Task-App/issues"
+  },
+  "homepage": "https://github.com/i-priyanshu/Task-App#readme",
+  "dependencies": {
+    "mongodb": "^3.6.4"
+  }
+}
