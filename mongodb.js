@@ -27,16 +27,41 @@ MongoClient.connect(
     //   console.log(user);
     // });
 
-    db.collection("users")
-      .find({ age: 27 })
-      .toArray((error, users) => {
-        console.log(users);
-      });
+    // db.collection("users")
+    //   .find({ age: 27 })
+    //   .toArray((error, users) => {
+    //     console.log(users);
+    //   });
+
+    // db.collection("users")
+    //   .find({ age: 27 })
+    //   .count((error, count) => {
+    //     console.log(count);
+    //   });
+
+    // const updatePromise = db.collection("users").updateOne(
+    //   {
+    //     _id: new ObjectID("605487484a387745f4ffdee8"),
+    //   },
+    //   {
+    //     $set: {
+    //       name: "Mike",
+    //     },
+    //   }).then((result) => {
+    //     console.log(result);
+    //   }).catch((error) => {
+    //     console.log(error);
+    //   });
 
     db.collection("users")
-      .find({ age: 27 })
-      .count((error, count) => {
-        console.log(count);
+      .deleteMany({
+        completed: false,
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 );
