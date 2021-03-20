@@ -19,6 +19,7 @@
   "homepage": "https://github.com/i-priyanshu/Task-App#readme",
   "dependencies": {
     "mongodb": "^3.6.4",
-    "mongoose": "^5.12.1"
+    "mongoose": "^5.12.1",
+    "validator": "^13.5.2"
   }
 }
