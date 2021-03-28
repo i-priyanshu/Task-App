@@ -18,13 +18,30 @@ router.post("/tasks", auth, async (req, res) => {
   }
 });
 
+//completed=true or =False
+//limit=10&skip=2
+//GET /tasks?sortBy=createdAt_desc
 router.get("/tasks", auth, async (req, res) => {
+  const match = {};
+
+  if (req.query.completed) {
+    match.completed = req.query.completed === "true";
+  }
+
   try {
-    // const task = await Task.find({ owner: req.user._id });
-    await req.user.populate("tasks").execPopulate();
-    res.send(task);
+    await req.user
+      .populate({
+        path: "tasks",
+        match,
+        options: {
+          limit: parseInt(req.query.limit),
+          skip: parseInt(req.query.skip),
+        },
+      })
+      .execPopulate();
+    res.send(req.user.tasks);
   } catch (e) {
-    res.status(500);
+    res.status(500).send();
   }
 });
 
